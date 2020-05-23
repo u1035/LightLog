@@ -30,44 +30,44 @@ namespace LightLog
             LogRecords.Clear();
         }
 
-        public static void Error(string message, [CallerMemberName] string sender = "")
+        public static void Error(string message, string sender = "", [CallerMemberName] string callerMember = "", [CallerFilePath] string sourcePath = "", [CallerLineNumber] int lineNumber = 0)
         {
-            AddRecord(new LogRecord(DateTime.Now, sender, message, LogLevel.Error));
+            AddRecord(new LogRecord(DateTime.Now, sender, message, LogLevel.Error, callerMember, sourcePath, lineNumber));
         }
 
-        public static void Warning(string message, [CallerMemberName] string sender = "")
+        public static void Warning(string message, string sender = "", [CallerMemberName] string callerMember = "", [CallerFilePath] string sourcePath = "", [CallerLineNumber] int lineNumber = 0)
         {
-            AddRecord(new LogRecord(DateTime.Now, sender, message, LogLevel.Warning));
+            AddRecord(new LogRecord(DateTime.Now, sender, message, LogLevel.Warning, callerMember, sourcePath, lineNumber));
         }
 
-        public static void Notice(string message, [CallerMemberName] string sender = "")
+        public static void Notice(string message, string sender = "", [CallerMemberName] string callerMember = "", [CallerFilePath] string sourcePath = "", [CallerLineNumber] int lineNumber = 0)
         {
-            AddRecord(new LogRecord(DateTime.Now, sender, message, LogLevel.Notice));
+            AddRecord(new LogRecord(DateTime.Now, sender, message, LogLevel.Notice, callerMember, sourcePath, lineNumber));
         }
 
-        public static void Info(string message, [CallerMemberName] string sender = "")
+        public static void Info(string message, string sender = "", [CallerMemberName] string callerMember = "", [CallerFilePath] string sourcePath = "", [CallerLineNumber] int lineNumber = 0)
         {
-            AddRecord(new LogRecord(DateTime.Now, sender, message, LogLevel.Info));
+            AddRecord(new LogRecord(DateTime.Now, sender, message, LogLevel.Info, callerMember, sourcePath, lineNumber));
         }
 
-        public static void Debug(string message, [CallerMemberName] string sender = "")
+        public static void Debug(string message, string sender = "", [CallerMemberName] string callerMember = "", [CallerFilePath] string sourcePath = "", [CallerLineNumber] int lineNumber = 0)
         {
-            AddRecord(new LogRecord(DateTime.Now, sender, message, LogLevel.Debug));
+            AddRecord(new LogRecord(DateTime.Now, sender, message, LogLevel.Debug, callerMember, sourcePath, lineNumber));
         }
 
-        public static void Trace(string message, [CallerMemberName] string sender = "")
+        public static void Trace(string message, string sender = "", [CallerMemberName] string callerMember = "", [CallerFilePath] string sourcePath = "", [CallerLineNumber] int lineNumber = 0)
         {
-            AddRecord(new LogRecord(DateTime.Now, sender, message, LogLevel.Trace));
+            AddRecord(new LogRecord(DateTime.Now, sender, message, LogLevel.Trace, callerMember, sourcePath, lineNumber));
         }
 
-        public static void AddRecord(LogLevel level, string message, [CallerMemberName] string sender = "")
+        public static void AddRecord(LogLevel level, string message, string sender = "", [CallerMemberName] string callerMember = "", [CallerFilePath] string sourcePath = "", [CallerLineNumber] int lineNumber = 0)
         {
-            AddRecord(new LogRecord(DateTime.Now, sender, message, level));
+            AddRecord(new LogRecord(DateTime.Now, sender, message, level, callerMember, sourcePath, lineNumber));
         }
 
-        public static void AddRecord(DateTime time, LogLevel level, string message, [CallerMemberName] string sender = "")
+        public static void AddRecord(DateTime time, LogLevel level, string message, string sender = "", [CallerMemberName] string callerMember = "", [CallerFilePath] string sourcePath = "", [CallerLineNumber] int lineNumber = 0)
         {
-            AddRecord(new LogRecord(time, sender, message, level));
+            AddRecord(new LogRecord(time, sender, message, level, callerMember, sourcePath, lineNumber));
         }
 
         private static void AddRecord(LogRecord record)
@@ -79,7 +79,8 @@ namespace LightLog
 
         private static void AppendRecordToFile(LogRecord record)
         {
-            var formattedRecord = $"{record.Time}|{record.Sender}|{record.Level}|{record.Message}";
+            var sourceFile = (record.SourceFilePath != "") ? Path.GetFileName(record.SourceFilePath) : "";
+            var formattedRecord = $"{record.Time:O}|{record.Sender}|{record.CallerMemberName}|{sourceFile}|{record.SourceFileLine}|{record.Level}|{record.Message}";
             try
             {
                 File.AppendAllText(LogFileName, $"{formattedRecord}" + Environment.NewLine);

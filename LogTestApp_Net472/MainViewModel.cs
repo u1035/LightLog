@@ -8,6 +8,17 @@ namespace LogTestApp_Net472
         {
             Logger.LogFileName = "test.log";
             Logger.Debug("Program started");
+            
+            PrintInfo();
+        }
+
+        private void PrintInfo()
+        {
+            Logger.Info("Information message 1");
+            Logger.Info("Information message 2");
+            Logger.Info("Information message 3");
+            Logger.Info("Information message 4");
+
         }
     }
 }
