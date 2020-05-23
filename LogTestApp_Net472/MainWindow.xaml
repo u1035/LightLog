@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:LogTestApp_Net472"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:MainViewModel />
+    </Window.DataContext>
     <Grid>
         
     </Grid>
