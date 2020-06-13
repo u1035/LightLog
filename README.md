@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/u1035/LightLog.svg?branch=master)](https://travis-ci.org/u1035/LightLog)
+![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/LightLog)
 ![Nuget](https://img.shields.io/nuget/dt/LightLog)
 
 # LightLog
