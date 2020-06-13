@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Runtime.CompilerServices;
@@ -42,7 +41,6 @@ namespace LightLog
         /// <summary>
         /// Observable collection of log records
         /// </summary>
-        [UsedImplicitly]
         public ObservableCollection<LogRecord> LogRecords { get; }
 
         #endregion

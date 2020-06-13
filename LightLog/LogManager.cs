@@ -1,12 +1,9 @@
-﻿using JetBrains.Annotations;
-
-namespace LightLog
+﻿namespace LightLog
 {
 
     /// <summary>
     /// Provides single instance of <see cref="Logger"/>
     /// </summary>
-    [UsedImplicitly]
     public static class LogManager
     {
         static LogManager()

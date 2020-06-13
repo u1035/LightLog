@@ -5,18 +5,23 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <RepositoryUrl>https://github.com/u1035/LightLog</RepositoryUrl>
     <PackageProjectUrl>https://github.com/u1035/LightLog</PackageProjectUrl>
-    <Authors>u1035</Authors>
-    <Company>u1035</Company>
-    <Version>0.1.0</Version>
+    <Authors>Alexander Mokhov</Authors>
+    <Company></Company>
+    <Version>0.1.0.1-alpha</Version>
     <Description>Simple lightweight logging package</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>C:\_DEV\u1035\LightLog\LightLog\LightLog.xml</DocumentationFile>
+    <ShouldCreateLogs>True</ShouldCreateLogs>
+    <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
+    <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
+    <UpdateAssemblyFileVersion>False</UpdateAssemblyFileVersion>
+    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
+    <AssemblyVersionSettings>None.None.None.None</AssemblyVersionSettings>
+    <UpdatePackageVersion>False</UpdatePackageVersion>
+    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+    <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
-  </ItemGroup>
 
 </Project>
