@@ -7,8 +7,9 @@
     <PackageProjectUrl>https://github.com/u1035/LightLog</PackageProjectUrl>
     <Authors>Alexander Mokhov</Authors>
     <Company></Company>
-    <Version>0.1.0.1-alpha</Version>
+    <Version>0.1.0.2-alpha</Version>
     <Description>Simple lightweight logging package</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
