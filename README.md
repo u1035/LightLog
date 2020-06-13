@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.org/u1035/LightLog.svg?branch=master)](https://travis-ci.org/u1035/LightLog)
+[![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/LightLog)](https://www.nuget.org/packages/LightLog)
+[![Nuget](https://img.shields.io/nuget/dt/LightLog)](https://www.nuget.org/packages/LightLog)
+![GitHub](https://img.shields.io/github/license/u1035/LightLog)
+
 # LightLog
 Lightweight application log library
 
