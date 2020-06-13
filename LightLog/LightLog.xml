@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LightLog</name>
+    </assembly>
+    <members>
+        <member name="T:LightLog.Logger">
+            <summary>
+            Provides functions for writing log messages
+            </summary>
+        </member>
+        <member name="P:LightLog.Logger.LogFileName">
+            <summary>
+            Gets or sets log file name
+            </summary>
+        </member>
+        <member name="P:LightLog.Logger.LogRecords">
+            <summary>
+            Observable collection of log records
+            </summary>
+        </member>
+        <member name="M:LightLog.Logger.ClearLog">
+            <summary>
+            Clears <see cref="P:LightLog.Logger.LogRecords"/> collection (file log not clearing)
+            </summary>
+        </member>
+        <member name="M:LightLog.Logger.Fatal(System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            Adds fatal error message to log
+            </summary>
+            <param name="message">Message text</param>
+            <param name="sender">Sender name (can be anything - name of module or function)</param>
+            <param name="callerMember">Caller member</param>
+            <param name="sourcePath">Caller source file</param>
+            <param name="lineNumber">Caller source file line</param>
+        </member>
+        <member name="M:LightLog.Logger.Error(System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            Adds error message to log
+            </summary>
+            <param name="message">Message text</param>
+            <param name="sender">Sender name (can be anything - name of module or function)</param>
+            <param name="callerMember">Caller member</param>
+            <param name="sourcePath">Caller source file</param>
+            <param name="lineNumber">Caller source file line</param>
+        </member>
+        <member name="M:LightLog.Logger.Warning(System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            Adds warning message to log
+            </summary>
+            <param name="message">Message text</param>
+            <param name="sender">Sender name (can be anything - name of module or function)</param>
+            <param name="callerMember">Caller member</param>
+            <param name="sourcePath">Caller source file</param>
+            <param name="lineNumber">Caller source file line</param>
+        </member>
+        <member name="M:LightLog.Logger.Notice(System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            Adds notice message to log
+            </summary>
+            <param name="message">Message text</param>
+            <param name="sender">Sender name (can be anything - name of module or function)</param>
+            <param name="callerMember">Caller member</param>
+            <param name="sourcePath">Caller source file</param>
+            <param name="lineNumber">Caller source file line</param>
+        </member>
+        <member name="M:LightLog.Logger.Info(System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            Adds info message to log
+            </summary>
+            <param name="message">Message text</param>
+            <param name="sender">Sender name (can be anything - name of module or function)</param>
+            <param name="callerMember">Caller member</param>
+            <param name="sourcePath">Caller source file</param>
+            <param name="lineNumber">Caller source file line</param>
+        </member>
+        <member name="M:LightLog.Logger.Debug(System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            Adds debug message to log
+            </summary>
+            <param name="message">Message text</param>
+            <param name="sender">Sender name (can be anything - name of module or function)</param>
+            <param name="callerMember">Caller member</param>
+            <param name="sourcePath">Caller source file</param>
+            <param name="lineNumber">Caller source file line</param>
+        </member>
+        <member name="M:LightLog.Logger.Trace(System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            Adds trace message to log
+            </summary>
+            <param name="message">Message text</param>
+            <param name="sender">Sender name (can be anything - name of module or function)</param>
+            <param name="callerMember">Caller member</param>
+            <param name="sourcePath">Caller source file</param>
+            <param name="lineNumber">Caller source file line</param>
+        </member>
+        <member name="M:LightLog.Logger.AddRecord(LightLog.LogLevel,System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            Adds message to log
+            </summary>
+            <param name="level">Severity level of log message</param>
+            <param name="message">Message text</param>
+            <param name="sender">Sender name (can be anything - name of module or function)</param>
+            <param name="callerMember">Caller member</param>
+            <param name="sourcePath">Caller source file</param>
+            <param name="lineNumber">Caller source file line</param>
+        </member>
+        <member name="M:LightLog.Logger.AddRecord(System.DateTime,LightLog.LogLevel,System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            Adds error message to log
+            </summary>
+            ///
+            <param name="time">Time of log message</param>
+            <param name="level">Severity level of log message</param>
+            <param name="message">Message text</param>
+            <param name="sender">Sender name (can be anything - name of module or function)</param>
+            <param name="callerMember">Caller member</param>
+            <param name="sourcePath">Caller source file</param>
+            <param name="lineNumber">Caller source file line</param>
+        </member>
+        <member name="M:LightLog.Logger.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:LightLog.LogLevel">
+            <summary>
+            Log message severity level
+            </summary>
+        </member>
+        <member name="P:LightLog.LogLevel.Trace">
+            <summary>
+            Log Trace level
+            </summary>
+        </member>
+        <member name="P:LightLog.LogLevel.Debug">
+            <summary>
+            Log Debug level
+            </summary>
+        </member>
+        <member name="P:LightLog.LogLevel.Notice">
+            <summary>
+            Log Notice level
+            </summary>
+        </member>
+        <member name="P:LightLog.LogLevel.Info">
+            <summary>
+            Log Info level
+            </summary>
+        </member>
+        <member name="P:LightLog.LogLevel.Warning">
+            <summary>
+            Log Warning level
+            </summary>
+        </member>
+        <member name="P:LightLog.LogLevel.Error">
+            <summary>
+            Log Error level
+            </summary>
+        </member>
+        <member name="P:LightLog.LogLevel.Fatal">
+            <summary>
+            Log Fatal level
+            </summary>
+        </member>
+        <member name="M:LightLog.LogLevel.ListAll">
+            <summary>
+            Returns collection of all available severity levels
+            </summary>
+            <returns>Collection of all available severity levels</returns>
+        </member>
+        <member name="M:LightLog.LogLevel.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:LightLog.LogLevel.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:LightLog.LogLevel.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:LightLog.LogLevel.System#IComparable#CompareTo(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="T:LightLog.LogManager">
+            <summary>
+            Provides single instance of <see cref="T:LightLog.Logger"/>
+            </summary>
+        </member>
+        <member name="P:LightLog.LogManager.Instance">
+            <summary>
+            Logger instance
+            </summary>
+        </member>
+        <member name="T:LightLog.LogRecord">
+            <summary>
+            Contains information about log record
+            </summary>
+        </member>
+        <member name="P:LightLog.LogRecord.Time">
+            <summary>
+            Record time
+            </summary>
+        </member>
+        <member name="P:LightLog.LogRecord.Sender">
+            <summary>
+            Sender
+            </summary>
+        </member>
+        <member name="P:LightLog.LogRecord.Message">
+            <summary>
+            Log message
+            </summary>
+        </member>
+        <member name="P:LightLog.LogRecord.Level">
+            <summary>
+            Message severity level
+            </summary>
+        </member>
+        <member name="P:LightLog.LogRecord.CallerMemberName">
+            <summary>
+            Caller member name
+            </summary>
+        </member>
+        <member name="P:LightLog.LogRecord.SourceFilePath">
+            <summary>
+            Caller source file
+            </summary>
+        </member>
+        <member name="P:LightLog.LogRecord.SourceFileLine">
+            <summary>
+            Caller source file line
+            </summary>
+        </member>
+        <member name="M:LightLog.LogRecord.#ctor(System.DateTime,System.String,System.String,LightLog.LogLevel,System.String,System.String,System.Int32)">
+            <summary>
+            Creates new LogRecord object
+            </summary>
+            <param name="time">Record time</param>
+            <param name="sender">Sender</param>
+            <param name="message">Log message</param>
+            <param name="level">Message severity level</param>
+            <param name="callerMemberName">Caller member name</param>
+            <param name="sourceFilePath">Caller source file</param>
+            <param name="sourceFileLine">Caller source file line</param>
+        </member>
+    </members>
+</doc>

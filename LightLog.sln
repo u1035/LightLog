@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30105.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightLog", "LightLog\LightLog.csproj", "{B0E6C0F5-C101-4EE5-957B-7CBA8FC281DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightLog", "LightLog\LightLog.csproj", "{B0E6C0F5-C101-4EE5-957B-7CBA8FC281DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogTestApp_Net472", "LogTestApp_Net472\LogTestApp_Net472.csproj", "{6937A25A-7F45-49E2-A577-392274CC3CB3}"
 EndProject

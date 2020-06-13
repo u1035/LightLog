@@ -1,6 +1,4 @@
-﻿using LightLog;
-
-namespace LogTestApp_Net472
+﻿namespace LogTestApp_Net472
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

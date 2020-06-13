@@ -2,6 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <RepositoryUrl>https://github.com/u1035/LightLog</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/u1035/LightLog</PackageProjectUrl>
+    <Authors>u1035</Authors>
+    <Company>u1035</Company>
+    <Version>0.1.0</Version>
+    <Description>Simple lightweight logging package</Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\_DEV\u1035\LightLog\LightLog\LightLog.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
