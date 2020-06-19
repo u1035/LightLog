@@ -19,6 +19,11 @@
             Observable collection of log records
             </summary>
         </member>
+        <member name="P:LightLog.Logger.NewRecordsFirst">
+            <summary>
+            If set to true - new records are inserted at beginning of records collection, otherwise new record is added at collection end
+            </summary>
+        </member>
         <member name="M:LightLog.Logger.ClearLog">
             <summary>
             Clears <see cref="P:LightLog.Logger.LogRecords"/> collection (file log not clearing)

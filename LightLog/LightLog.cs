@@ -43,6 +43,11 @@ namespace LightLog
         /// </summary>
         public ObservableCollection<LogRecord> LogRecords { get; }
 
+        /// <summary>
+        /// If set to true - new records are inserted at beginning of records collection, otherwise new record is added at collection end
+        /// </summary>
+        public bool NewRecordsFirst { get; set; }
+
         #endregion
 
         #region Constructor
@@ -189,7 +194,10 @@ namespace LightLog
         {
             if (_logFileSet) AppendRecordToFile(record);
 
-            LogRecords.Add(record);
+            if (NewRecordsFirst)
+                LogRecords.Insert(0, record);
+            else
+                LogRecords.Add(record);
         }
 
         #endregion

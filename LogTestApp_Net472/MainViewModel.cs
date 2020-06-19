@@ -9,6 +9,8 @@ namespace LogTestApp_Net472
         public MainViewModel()
         {
             Logger.LogFileName = "test.log";
+            Logger.NewRecordsFirst = true;
+
             Logger.Debug("Program started");
             
             PrintInfo();
