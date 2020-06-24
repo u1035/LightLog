@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0.4-alpha] - 2020-06-24
+
+### Fixed
+
+- Fixed work with log messages from different threads
+
+
 ## [0.1.0.3-alpha] - 2020-06-19
 
 ### Added
