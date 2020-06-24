@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Runtime.CompilerServices;
 
@@ -8,11 +10,14 @@ namespace LightLog
     /// <summary>
     /// Provides functions for writing log messages
     /// </summary>
-    public class Logger : IDisposable
+    public class Logger : IDisposable, INotifyPropertyChanged
     {
         private bool _logFileSet;
         private StreamWriter _logFileStream;
         private string _logFileName;
+
+        private readonly List<LogRecord> _logRecords;
+        private readonly object _logRecordsLock;
 
         #region Public fields
 
@@ -39,9 +44,9 @@ namespace LightLog
         }
 
         /// <summary>
-        /// Observable collection of log records
+        /// Collection of log records that can be bound to UI
         /// </summary>
-        public ObservableCollection<LogRecord> LogRecords { get; }
+        public IReadOnlyCollection<LogRecord> LogRecords { get; }
 
         /// <summary>
         /// If set to true - new records are inserted at beginning of records collection, otherwise new record is added at collection end
@@ -54,7 +59,9 @@ namespace LightLog
 
         internal Logger()
         {
-            LogRecords = new ObservableCollection<LogRecord>();
+            _logRecordsLock = new object();
+            _logRecords = new List<LogRecord>();
+            LogRecords = new ReadOnlyCollection<LogRecord>(_logRecords);
         }
 
         #endregion
@@ -66,7 +73,11 @@ namespace LightLog
         /// </summary>
         public void ClearLog()
         {
-            LogRecords.Clear();
+            lock (_logRecordsLock)
+            {
+                _logRecords.Clear();
+            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LogRecords)));
         }
 
         /// <summary>
@@ -190,14 +201,22 @@ namespace LightLog
             AddRecord(new LogRecord(time, sender, message, level, callerMember, sourcePath, lineNumber));
         }
 
-        private void AddRecord(LogRecord record)
+     private void AddRecord(LogRecord record)
         {
             if (_logFileSet) AppendRecordToFile(record);
 
             if (NewRecordsFirst)
-                LogRecords.Insert(0, record);
+                lock (_logRecordsLock)
+                {
+                    _logRecords.Insert(0, record);
+                }
             else
-                LogRecords.Add(record);
+                lock (_logRecordsLock)
+                {
+                    _logRecords.Add(record);
+                }
+
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LogRecords)));
         }
 
         #endregion
@@ -250,8 +269,12 @@ namespace LightLog
         {
             _logFileStream?.Dispose();
         }
-        
+
         #endregion
 
+        /// <summary>
+        /// Event fired when new log record added to collection or collection cleared
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

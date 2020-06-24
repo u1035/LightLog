@@ -16,7 +16,7 @@
         </member>
         <member name="P:LightLog.Logger.LogRecords">
             <summary>
-            Observable collection of log records
+            Collection of log records that can be bound to UI
             </summary>
         </member>
         <member name="P:LightLog.Logger.NewRecordsFirst">
@@ -125,6 +125,11 @@
         </member>
         <member name="M:LightLog.Logger.Dispose">
             <inheritdoc />
+        </member>
+        <member name="E:LightLog.Logger.PropertyChanged">
+            <summary>
+            Event fired when new log record added to collection or collection cleared
+            </summary>
         </member>
         <member name="T:LightLog.LogLevel">
             <summary>

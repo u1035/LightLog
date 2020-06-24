@@ -1,4 +1,6 @@
-﻿using LightLog;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using LightLog;
 
 namespace LogTestApp_Net472
 {
@@ -12,19 +14,31 @@ namespace LogTestApp_Net472
             Logger.NewRecordsFirst = true;
 
             Logger.Debug("Program started");
-            
-            PrintInfo();
+
+            PrintInfo(0);
+            Task.Run(PrintTask);
+            var th1 = new Thread(PrintInfo);
+            var th2 = new Thread(PrintInfo);
+            th1.Start(1); 
+            th2.Start(2);
         }
 
-        private void PrintInfo()
+        private void PrintInfo(object threadNumber)
         {
-            for (int i = 0; i < 10000; i++)
+            for (int i = 0; i < 1000; i++)
             {
-                Logger.Info($"Information message {i}");
-                
-                if (i == 5000) 
-                    Logger.LogFileName = "test2.log";
+                Logger.Info($"Thread {(int)threadNumber} - Information message {i}");
             }
+        }
+
+        private Task PrintTask()
+        {
+            for (int i = 0; i < 1000; i++)
+            {
+                Logger.Info($"Task - Information message {i}");
+            }
+
+            return Task.CompletedTask;
         }
     }
 }
